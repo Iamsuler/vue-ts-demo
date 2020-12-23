@@ -1,18 +1,17 @@
-import { VueConstructor, DirectiveOptions } from 'vue'
+import { VueConstructor } from 'vue'
 
 import copy from './copy'
 
-// TODO: 类型完善
-interface CustomDirctives {
-  copy: DirectiveOptions;
-}
-
-const directives: CustomDirctives = {
+const directives = {
   copy
 }
 
+type CustomDirctivesIndex = keyof typeof directives
+
 export default {
   install (Vue: VueConstructor) {
-    Vue.directive('copy', directives.copy)
+    Object.keys(directives).forEach((key) => {
+      Vue.directive(key, directives[key as CustomDirctivesIndex])
+    })
   }
 }
