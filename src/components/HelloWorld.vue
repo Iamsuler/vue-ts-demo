@@ -1,7 +1,11 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button v-copy="copyText">复制</button>
+    <p><button v-copy="copyText">复制</button></p>
+    <p>
+      <button v-longpress="longpressHandle">长按1</button>
+      <button v-longpress="longpressHandle">长按2</button>
+    </p>
   </div>
 </template>
 
@@ -13,6 +17,10 @@ export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
   private copyText = 'xxxx'
+
+  private longpressHandle = () => {
+    console.log('长按')
+  }
 }
 </script>
 
