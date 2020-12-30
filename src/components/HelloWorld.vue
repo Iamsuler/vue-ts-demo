@@ -9,6 +9,15 @@
     <p>
       <button v-debounce="handleDebounce">debounce</button>
     </p>
+    <p>super admin:
+      <button v-permission="['super admin']">super admin</button>
+    </p>
+    <p>admin:
+      <button v-permission="['admin']">admin</button>
+    </p>
+    <p>user:
+      <button>user</button>
+    </p>
     <p v-for="index in 10" :key="`image${index}`" :id="`image${index}`">
       <img v-lazyload="'/images/girl.jpeg'" width="100%" height="225px">
     </p>
