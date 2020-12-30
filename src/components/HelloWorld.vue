@@ -6,6 +6,12 @@
       <button v-longpress="longpressHandle">长按1</button>
       <button v-longpress="longpressHandle">长按2</button>
     </p>
+    <p>
+      <button v-debounce="handleDebounce">debounce</button>
+    </p>
+    <p v-for="index in 10" :key="`image${index}`" :id="`image${index}`">
+      <img v-lazyload="'/images/girl.jpeg'" width="100%" height="225px">
+    </p>
   </div>
 </template>
 
@@ -20,6 +26,10 @@ export default class HelloWorld extends Vue {
 
   private longpressHandle = () => {
     console.log('长按')
+  }
+
+  private handleDebounce = () => {
+    console.log('debounce', new Date().toLocaleTimeString())
   }
 }
 </script>
